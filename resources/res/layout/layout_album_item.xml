@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp"
+    android:clipToPadding="false"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <android.support.v7.widget.CardView
+        android:id="@+id/album_item_cover_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="12dp"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardPreventCornerOverlap="false"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/album_item_cover_card">
+        <TextView
+            android:textSize="17sp"
+            android:textColor="?android:attr/textColorPrimary"
+            android:ellipsize="end"
+            android:id="@+id/tv_album_title"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:singleLine="true"
+            android:layout_toLeftOf="@+id/iv_album_more_ops"
+            android:layout_alignParentLeft="true"/>
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iv_album_more_ops"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_more_overflow"
+            android:layout_alignParentRight="true"/>
+        <TextView
+            android:textSize="11sp"
+            android:textColor="?android:attr/textColorHint"
+            android:id="@+id/tv_album_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_album_title"
+            android:layout_alignParentLeft="true"/>
+    </RelativeLayout>
+</RelativeLayout>

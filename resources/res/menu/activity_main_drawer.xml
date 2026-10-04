@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="none">
+        <item
+            android:icon="@drawable/ic_protect_on_off"
+            android:id="@+id/nav_menu_protect_on_off"
+            android:visible="@string/WITH_VAULT"
+            android:title="@string/menu_item_protect_off"/>
+        <item
+            android:icon="@drawable/ic_reset_pin"
+            android:id="@+id/nav_menu_reset_pin"
+            android:visible="@string/WITH_VAULT"
+            android:title="@string/menu_item_reset_pin"/>
+        <item
+            android:icon="@mipmap/notification"
+            android:id="@+id/nav_menu_notification"
+            android:title="@string/menu_item_notification"/>
+        <item
+            android:icon="@mipmap/hide_from_recent"
+            android:id="@+id/nav_menu_hide_from_recent"
+            android:title="@string/menu_item_hide_recent"/>
+        <item
+            android:icon="@drawable/navigation_language"
+            android:id="@+id/nav_menu_language"
+            android:title="@string/menu_item_language"/>
+        <item
+            android:icon="@drawable/ic_rate_us"
+            android:id="@+id/nav_menu_rate_us"
+            android:title="@string/menu_item_rate_us"/>
+        <item
+            android:icon="@drawable/ic_contactus_facebook"
+            android:id="@+id/nav_menu_contactus_facebook"
+            android:title="@string/menu_item_contactus_facebook"/>
+        <item
+            android:icon="@drawable/ic_contactus_whatsapp"
+            android:id="@+id/nav_menu_contactus_whatsapp"
+            android:title="@string/menu_item_contactus_whatsapp"/>
+        <item
+            android:icon="@drawable/ic_feedback"
+            android:id="@+id/nav_menu_feedback"
+            android:title="@string/menu_item_feedback"/>
+    </group>
+</menu>

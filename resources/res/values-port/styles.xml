@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="DisplayEditTextStyle.Formula" parent="@style/DisplayEditTextStyle">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingTop">48dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingBottom">24dp</item>
+        <item name="android:layout_width">-2</item>
+        <item name="android:layout_height">-2</item>
+        <item name="maxTextSize">64sp</item>
+        <item name="minTextSize">36sp</item>
+        <item name="stepTextSize">8sp</item>
+    </style>
+    <style name="DisplayEditTextStyle.Result" parent="@style/DisplayEditTextStyle">
+        <item name="android:textSize">36sp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingBottom">48dp</item>
+        <item name="android:layout_width">-2</item>
+        <item name="android:layout_height">-2</item>
+    </style>
+    <style name="PadButtonStyle.Advanced" parent="@style/PadButtonStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/pad_button_advanced_text_color</item>
+        <item name="android:background">@drawable/pad_button_advanced_background</item>
+        <item name="android:layout_width">-2</item>
+        <item name="android:layout_height">-2</item>
+        <item name="android:layout_margin">4dp</item>
+    </style>
+    <style name="PadButtonStyle.Numeric" parent="@style/PadButtonStyle">
+        <item name="android:textSize">32sp</item>
+        <item name="android:layout_width">-2</item>
+        <item name="android:layout_height">-2</item>
+        <item name="android:layout_margin">4dp</item>
+    </style>
+    <style name="PadButtonStyle.Numeric.Equals" parent="@style/PadButtonStyle.Numeric">
+        <item name="android:visibility">0</item>
+        <item name="android:layout_width">-2</item>
+        <item name="android:layout_height">-2</item>
+    </style>
+    <style name="PadButtonStyle.Operator" parent="@style/PadButtonStyle">
+        <item name="android:textSize">23sp</item>
+        <item name="android:layout_width">-2</item>
+        <item name="android:layout_height">-2</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+    <style name="PadButtonStyle.Operator.Text" parent="@style/PadButtonStyle.Operator">
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_width">-2</item>
+        <item name="android:layout_height">-2</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+    <style name="PadLayoutStyle.Advanced" parent="@style/PadLayoutStyle">
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingBottom">20dp</item>
+        <item name="android:layout_width">-2</item>
+        <item name="android:layout_height">-2</item>
+        <item name="android:rowCount">4</item>
+        <item name="android:columnCount">3</item>
+    </style>
+    <style name="PadLayoutStyle.Numeric" parent="@style/PadLayoutStyle">
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:paddingBottom">20dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">264</item>
+    </style>
+    <style name="PadLayoutStyle.Operator" parent="@style/PadLayoutStyle">
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingRight">28dp</item>
+        <item name="android:paddingBottom">24dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">96</item>
+    </style>
+</resources>

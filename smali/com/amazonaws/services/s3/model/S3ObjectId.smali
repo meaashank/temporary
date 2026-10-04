@@ -1,0 +1,232 @@
+###### Class com.amazonaws.services.s3.model.S3ObjectId (com.amazonaws.services.s3.model.S3ObjectId)
+.class public Lcom/amazonaws/services/s3/model/S3ObjectId;
+.super Ljava/lang/Object;
+.source "S3ObjectId.java"
+
+# interfaces
+.implements Ljava/io/Serializable;
+
+
+# instance fields
+.field private final a:Ljava/lang/String;
+
+.field private final b:Ljava/lang/String;
+
+.field private final c:Ljava/lang/String;
+
+
+# direct methods
+.method public constructor <init>(Lcom/amazonaws/services/s3/model/S3ObjectIdBuilder;)V
+    .registers 3
+
+    .line 60
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 61
+    invoke-virtual {p1}, Lcom/amazonaws/services/s3/model/S3ObjectIdBuilder;->a()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/amazonaws/services/s3/model/S3ObjectId;->a:Ljava/lang/String;
+
+    .line 62
+    invoke-virtual {p1}, Lcom/amazonaws/services/s3/model/S3ObjectIdBuilder;->b()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/amazonaws/services/s3/model/S3ObjectId;->b:Ljava/lang/String;
+
+    .line 63
+    invoke-virtual {p1}, Lcom/amazonaws/services/s3/model/S3ObjectIdBuilder;->c()Ljava/lang/String;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/amazonaws/services/s3/model/S3ObjectId;->c:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
+    .registers 4
+
+    const/4 v0, 0x0
+
+    .line 35
+    invoke-direct {p0, p1, p2, v0}, Lcom/amazonaws/services/s3/model/S3ObjectId;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .registers 4
+
+    .line 46
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    if-eqz p1, :cond_e
+
+    if-eqz p2, :cond_e
+
+    .line 51
+    iput-object p1, p0, Lcom/amazonaws/services/s3/model/S3ObjectId;->a:Ljava/lang/String;
+
+    .line 52
+    iput-object p2, p0, Lcom/amazonaws/services/s3/model/S3ObjectId;->b:Ljava/lang/String;
+
+    .line 53
+    iput-object p3, p0, Lcom/amazonaws/services/s3/model/S3ObjectId;->c:Ljava/lang/String;
+
+    return-void
+
+    .line 48
+    :cond_e
+    new-instance p1, Ljava/lang/IllegalArgumentException;
+
+    const-string p2, "bucket and key must be specified"
+
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+.end method
+
+
+# virtual methods
+.method public a()Lcom/amazonaws/services/s3/model/InstructionFileId;
+    .registers 2
+
+    const/4 v0, 0x0
+
+    .line 86
+    invoke-virtual {p0, v0}, Lcom/amazonaws/services/s3/model/S3ObjectId;->a(Ljava/lang/String;)Lcom/amazonaws/services/s3/model/InstructionFileId;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public a(Ljava/lang/String;)Lcom/amazonaws/services/s3/model/InstructionFileId;
+    .registers 5
+
+    .line 94
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v1, p0, Lcom/amazonaws/services/s3/model/S3ObjectId;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 95
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    if-eqz p1, :cond_27
+
+    invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v0
+
+    if-nez v0, :cond_29
+
+    :cond_27
+    const-string p1, "instruction"
+
+    :cond_29
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    .line 99
+    new-instance v0, Lcom/amazonaws/services/s3/model/InstructionFileId;
+
+    iget-object v1, p0, Lcom/amazonaws/services/s3/model/S3ObjectId;->a:Ljava/lang/String;
+
+    iget-object v2, p0, Lcom/amazonaws/services/s3/model/S3ObjectId;->c:Ljava/lang/String;
+
+    invoke-direct {v0, v1, p1, v2}, Lcom/amazonaws/services/s3/model/InstructionFileId;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    return-object v0
+.end method
+
+.method public b()Ljava/lang/String;
+    .registers 2
+
+    .line 67
+    iget-object v0, p0, Lcom/amazonaws/services/s3/model/S3ObjectId;->a:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public c()Ljava/lang/String;
+    .registers 2
+
+    .line 71
+    iget-object v0, p0, Lcom/amazonaws/services/s3/model/S3ObjectId;->b:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public d()Ljava/lang/String;
+    .registers 2
+
+    .line 79
+    iget-object v0, p0, Lcom/amazonaws/services/s3/model/S3ObjectId;->c:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public toString()Ljava/lang/String;
+    .registers 3
+
+    .line 104
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "bucket: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lcom/amazonaws/services/s3/model/S3ObjectId;->a:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, ", key: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lcom/amazonaws/services/s3/model/S3ObjectId;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, ", versionId: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lcom/amazonaws/services/s3/model/S3ObjectId;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method

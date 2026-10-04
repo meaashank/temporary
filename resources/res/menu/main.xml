@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:icon="@drawable/ic_lock_open"
+        android:enabled="true"
+        android:id="@+id/main_activity_action_lock_switch"
+        android:title="null"
+        app:showAsAction="always"/>
+    <item
+        android:icon="@mipmap/ic_no_ads"
+        android:id="@+id/action_no_ads"
+        android:orderInCategory="100"
+        android:title="@string/action_no_ads"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:icon="@mipmap/ic_settings"
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="ifRoom"/>
+</menu>

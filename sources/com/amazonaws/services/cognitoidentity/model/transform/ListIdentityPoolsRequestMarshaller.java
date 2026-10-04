@@ -1,0 +1,54 @@
+package com.amazonaws.services.cognitoidentity.model.transform;
+
+import com.amazonaws.AmazonClientException;
+import com.amazonaws.DefaultRequest;
+import com.amazonaws.Request;
+import com.amazonaws.http.HttpMethodName;
+import com.amazonaws.services.cognitoidentity.model.ListIdentityPoolsRequest;
+import com.amazonaws.transform.Marshaller;
+import com.amazonaws.util.StringInputStream;
+import com.amazonaws.util.StringUtils;
+import com.amazonaws.util.json.AwsJsonWriter;
+import com.amazonaws.util.json.JsonUtils;
+import java.io.StringWriter;
+
+/* JADX INFO: loaded from: classes.dex */
+public class ListIdentityPoolsRequestMarshaller implements Marshaller<Request<ListIdentityPoolsRequest>, ListIdentityPoolsRequest> {
+    @Override // com.amazonaws.transform.Marshaller
+    public Request<ListIdentityPoolsRequest> a(ListIdentityPoolsRequest listIdentityPoolsRequest) {
+        if (listIdentityPoolsRequest == null) {
+            throw new AmazonClientException("Invalid argument passed to marshall(ListIdentityPoolsRequest)");
+        }
+        DefaultRequest defaultRequest = new DefaultRequest(listIdentityPoolsRequest, "AmazonCognitoIdentity");
+        defaultRequest.a("X-Amz-Target", "AWSCognitoIdentityService.ListIdentityPools");
+        defaultRequest.a(HttpMethodName.POST);
+        defaultRequest.a("/");
+        try {
+            StringWriter stringWriter = new StringWriter();
+            AwsJsonWriter awsJsonWriterA = JsonUtils.a(stringWriter);
+            awsJsonWriterA.c();
+            if (listIdentityPoolsRequest.h() != null) {
+                Integer numH = listIdentityPoolsRequest.h();
+                awsJsonWriterA.a("MaxResults");
+                awsJsonWriterA.a(numH);
+            }
+            if (listIdentityPoolsRequest.i() != null) {
+                String strI = listIdentityPoolsRequest.i();
+                awsJsonWriterA.a("NextToken");
+                awsJsonWriterA.b(strI);
+            }
+            awsJsonWriterA.d();
+            awsJsonWriterA.g();
+            String string = stringWriter.toString();
+            byte[] bytes = string.getBytes(StringUtils.a);
+            defaultRequest.a(new StringInputStream(string));
+            defaultRequest.a("Content-Length", Integer.toString(bytes.length));
+            if (!defaultRequest.b().containsKey("Content-Type")) {
+                defaultRequest.a("Content-Type", "application/x-amz-json-1.1");
+            }
+            return defaultRequest;
+        } catch (Throwable th) {
+            throw new AmazonClientException("Unable to marshall request to JSON: " + th.getMessage(), th);
+        }
+    }
+}

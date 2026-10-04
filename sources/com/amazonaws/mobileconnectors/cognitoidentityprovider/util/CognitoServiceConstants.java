@@ -1,0 +1,53 @@
+package com.amazonaws.mobileconnectors.cognitoidentityprovider.util;
+
+/* JADX INFO: loaded from: classes.dex */
+public class CognitoServiceConstants {
+    public static final String A = "DEVICE_KEY";
+    public static final String B = "CODE_DELIVERY_DELIVERY_MEDIUM";
+    public static final String C = "CODE_DELIVERY_DESTINATION";
+    public static final String D = "MFAS_CAN_CHOOSE";
+    public static final String E = "MFAS_CAN_SETUP";
+    public static final String F = "USER_ID_FOR_SRP";
+    public static final String G = "userAttributes";
+    public static final String H = "userAttributes.";
+    public static final String I = "requiredAttributes";
+    public static final String J = "SMS_MFA_CODE";
+    public static final String K = "SOFTWARE_TOKEN_MFA_CODE";
+    public static final String L = "TIMESTAMP";
+    public static final String M = "PASSWORD_CLAIM_SECRET_BLOCK";
+    public static final String N = "PASSWORD_CLAIM_SIGNATURE";
+    public static final String O = "SECRET_HASH";
+    public static final String P = "USERNAME";
+    public static final String Q = "SRP_A";
+    public static final String R = "ANSWER";
+    public static final String S = "DEVICE_KEY";
+    public static final String T = "PASSWORD";
+    public static final String U = "NEW_PASSWORD";
+    public static final String V = "Time-based One-time Password MFA";
+    public static final String a = "USER_SRP_AUTH";
+    public static final String b = "REFRESH_TOKEN_AUTH";
+    public static final String c = "CUSTOM_AUTH";
+    public static final String d = "USER_PASSWORD_AUTH";
+    public static final String e = "MFA_SETUP";
+    public static final String f = "SELECT_MFA_TYPE";
+    public static final String g = "SMS_MFA";
+    public static final String h = "SOFTWARE_TOKEN_MFA";
+    public static final String i = "PASSWORD_VERIFIER";
+    public static final String j = "CUSTOM_CHALLENGE";
+    public static final String k = "DEVICE_SRP_AUTH";
+    public static final String l = "DEVICE_PASSWORD_VERIFIER";
+    public static final String m = "NEW_PASSWORD_REQUIRED";
+    public static final String n = "USER_PASSWORD";
+    public static final String o = "REFRESH_TOKEN";
+    public static final String p = "DEVICE_KEY";
+    public static final String q = "SECRET_HASH";
+    public static final String r = "USERNAME";
+    public static final String s = "SRP_A";
+    public static final String t = "VALIDATION_DATA";
+    public static final String u = "CHALLENGE_NAME";
+    public static final String v = "PASSWORD";
+    public static final String w = "SALT";
+    public static final String x = "SRP_B";
+    public static final String y = "SECRET_BLOCK";
+    public static final String z = "USERNAME";
+}

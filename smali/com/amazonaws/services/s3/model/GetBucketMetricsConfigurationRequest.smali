@@ -1,0 +1,95 @@
+###### Class com.amazonaws.services.s3.model.GetBucketMetricsConfigurationRequest (com.amazonaws.services.s3.model.GetBucketMetricsConfigurationRequest)
+.class public Lcom/amazonaws/services/s3/model/GetBucketMetricsConfigurationRequest;
+.super Lcom/amazonaws/AmazonWebServiceRequest;
+.source "GetBucketMetricsConfigurationRequest.java"
+
+# interfaces
+.implements Ljava/io/Serializable;
+
+
+# instance fields
+.field private a:Ljava/lang/String;
+
+.field private b:Ljava/lang/String;
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 1
+
+    .line 28
+    invoke-direct {p0}, Lcom/amazonaws/AmazonWebServiceRequest;-><init>()V
+
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
+    .registers 3
+
+    .line 31
+    invoke-direct {p0}, Lcom/amazonaws/AmazonWebServiceRequest;-><init>()V
+
+    .line 32
+    iput-object p1, p0, Lcom/amazonaws/services/s3/model/GetBucketMetricsConfigurationRequest;->a:Ljava/lang/String;
+
+    .line 33
+    iput-object p2, p0, Lcom/amazonaws/services/s3/model/GetBucketMetricsConfigurationRequest;->b:Ljava/lang/String;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public a(Ljava/lang/String;)V
+    .registers 2
+
+    .line 47
+    iput-object p1, p0, Lcom/amazonaws/services/s3/model/GetBucketMetricsConfigurationRequest;->a:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public b(Ljava/lang/String;)Lcom/amazonaws/services/s3/model/GetBucketMetricsConfigurationRequest;
+    .registers 2
+
+    .line 55
+    invoke-virtual {p0, p1}, Lcom/amazonaws/services/s3/model/GetBucketMetricsConfigurationRequest;->a(Ljava/lang/String;)V
+
+    return-object p0
+.end method
+
+.method public c(Ljava/lang/String;)V
+    .registers 2
+
+    .line 70
+    iput-object p1, p0, Lcom/amazonaws/services/s3/model/GetBucketMetricsConfigurationRequest;->b:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public d(Ljava/lang/String;)Lcom/amazonaws/services/s3/model/GetBucketMetricsConfigurationRequest;
+    .registers 2
+
+    .line 78
+    invoke-virtual {p0, p1}, Lcom/amazonaws/services/s3/model/GetBucketMetricsConfigurationRequest;->c(Ljava/lang/String;)V
+
+    return-object p0
+.end method
+
+.method public h()Ljava/lang/String;
+    .registers 2
+
+    .line 40
+    iget-object v0, p0, Lcom/amazonaws/services/s3/model/GetBucketMetricsConfigurationRequest;->a:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public i()Ljava/lang/String;
+    .registers 2
+
+    .line 63
+    iget-object v0, p0, Lcom/amazonaws/services/s3/model/GetBucketMetricsConfigurationRequest;->b:Ljava/lang/String;
+
+    return-object v0
+.end method

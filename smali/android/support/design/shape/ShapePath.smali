@@ -1,0 +1,586 @@
+###### Class android.support.design.shape.ShapePath (android.support.design.shape.ShapePath)
+.class public Landroid/support/design/shape/ShapePath;
+.super Ljava/lang/Object;
+.source "ShapePath.java"
+
+
+# annotations
+.annotation build Landroid/support/design/internal/Experimental;
+    value = "The shapes API is currently experimental and subject to change"
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/design/shape/ShapePath$PathArcOperation;,
+        Landroid/support/design/shape/ShapePath$PathQuadOperation;,
+        Landroid/support/design/shape/ShapePath$PathLineOperation;,
+        Landroid/support/design/shape/ShapePath$PathOperation;
+    }
+.end annotation
+
+
+# instance fields
+.field public endX:F
+
+.field public endY:F
+
+.field private final operations:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List<",
+            "Landroid/support/design/shape/ShapePath$PathOperation;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public startX:F
+
+.field public startY:F
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 2
+
+    .line 40
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 38
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Landroid/support/design/shape/ShapePath;->operations:Ljava/util/List;
+
+    const/4 v0, 0x0
+
+    .line 41
+    invoke-virtual {p0, v0, v0}, Landroid/support/design/shape/ShapePath;->reset(FF)V
+
+    return-void
+.end method
+
+.method public constructor <init>(FF)V
+    .registers 4
+
+    .line 44
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 38
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Landroid/support/design/shape/ShapePath;->operations:Ljava/util/List;
+
+    .line 45
+    invoke-virtual {p0, p1, p2}, Landroid/support/design/shape/ShapePath;->reset(FF)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public addArc(FFFFFF)V
+    .registers 11
+
+    .line 104
+    new-instance v0, Landroid/support/design/shape/ShapePath$PathArcOperation;
+
+    invoke-direct {v0, p1, p2, p3, p4}, Landroid/support/design/shape/ShapePath$PathArcOperation;-><init>(FFFF)V
+
+    .line 105
+    iput p5, v0, Landroid/support/design/shape/ShapePath$PathArcOperation;->startAngle:F
+
+    .line 106
+    iput p6, v0, Landroid/support/design/shape/ShapePath$PathArcOperation;->sweepAngle:F
+
+    .line 107
+    iget-object v1, p0, Landroid/support/design/shape/ShapePath;->operations:Ljava/util/List;
+
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    add-float v0, p1, p3
+
+    const/high16 v1, 0x3f000000    # 0.5f
+
+    mul-float v0, v0, v1
+
+    sub-float/2addr p3, p1
+
+    const/high16 p1, 0x40000000    # 2.0f
+
+    div-float/2addr p3, p1
+
+    add-float/2addr p5, p6
+
+    float-to-double p5, p5
+
+    .line 110
+    invoke-static {p5, p6}, Ljava/lang/Math;->toRadians(D)D
+
+    move-result-wide v2
+
+    invoke-static {v2, v3}, Ljava/lang/Math;->cos(D)D
+
+    move-result-wide v2
+
+    double-to-float v2, v2
+
+    mul-float p3, p3, v2
+
+    add-float/2addr v0, p3
+
+    iput v0, p0, Landroid/support/design/shape/ShapePath;->endX:F
+
+    add-float p3, p2, p4
+
+    mul-float p3, p3, v1
+
+    sub-float/2addr p4, p2
+
+    div-float/2addr p4, p1
+
+    .line 112
+    invoke-static {p5, p6}, Ljava/lang/Math;->toRadians(D)D
+
+    move-result-wide p1
+
+    invoke-static {p1, p2}, Ljava/lang/Math;->sin(D)D
+
+    move-result-wide p1
+
+    double-to-float p1, p1
+
+    mul-float p4, p4, p1
+
+    add-float/2addr p3, p4
+
+    iput p3, p0, Landroid/support/design/shape/ShapePath;->endY:F
+
+    return-void
+.end method
+
+.method public applyToPath(Landroid/graphics/Matrix;Landroid/graphics/Path;)V
+    .registers 6
+
+    .line 122
+    iget-object v0, p0, Landroid/support/design/shape/ShapePath;->operations:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    :goto_7
+    if-ge v1, v0, :cond_17
+
+    .line 123
+    iget-object v2, p0, Landroid/support/design/shape/ShapePath;->operations:Ljava/util/List;
+
+    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/support/design/shape/ShapePath$PathOperation;
+
+    .line 124
+    invoke-virtual {v2, p1, p2}, Landroid/support/design/shape/ShapePath$PathOperation;->applyToPath(Landroid/graphics/Matrix;Landroid/graphics/Path;)V
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_7
+
+    :cond_17
+    return-void
+.end method
+
+.method public lineTo(FF)V
+    .registers 5
+
+    .line 63
+    new-instance v0, Landroid/support/design/shape/ShapePath$PathLineOperation;
+
+    invoke-direct {v0}, Landroid/support/design/shape/ShapePath$PathLineOperation;-><init>()V
+
+    .line 64
+    invoke-static {v0, p1}, Landroid/support/design/shape/ShapePath$PathLineOperation;->access$002(Landroid/support/design/shape/ShapePath$PathLineOperation;F)F
+
+    .line 65
+    invoke-static {v0, p2}, Landroid/support/design/shape/ShapePath$PathLineOperation;->access$102(Landroid/support/design/shape/ShapePath$PathLineOperation;F)F
+
+    .line 66
+    iget-object v1, p0, Landroid/support/design/shape/ShapePath;->operations:Ljava/util/List;
+
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 68
+    iput p1, p0, Landroid/support/design/shape/ShapePath;->endX:F
+
+    .line 69
+    iput p2, p0, Landroid/support/design/shape/ShapePath;->endY:F
+
+    return-void
+.end method
+
+.method public quadToPoint(FFFF)V
+    .registers 6
+
+    .line 81
+    new-instance v0, Landroid/support/design/shape/ShapePath$PathQuadOperation;
+
+    invoke-direct {v0}, Landroid/support/design/shape/ShapePath$PathQuadOperation;-><init>()V
+
+    .line 82
+    iput p1, v0, Landroid/support/design/shape/ShapePath$PathQuadOperation;->controlX:F
+
+    .line 83
+    iput p2, v0, Landroid/support/design/shape/ShapePath$PathQuadOperation;->controlY:F
+
+    .line 84
+    iput p3, v0, Landroid/support/design/shape/ShapePath$PathQuadOperation;->endX:F
+
+    .line 85
+    iput p4, v0, Landroid/support/design/shape/ShapePath$PathQuadOperation;->endY:F
+
+    .line 86
+    iget-object p1, p0, Landroid/support/design/shape/ShapePath;->operations:Ljava/util/List;
+
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 88
+    iput p3, p0, Landroid/support/design/shape/ShapePath;->endX:F
+
+    .line 89
+    iput p4, p0, Landroid/support/design/shape/ShapePath;->endY:F
+
+    return-void
+.end method
+
+.method public reset(FF)V
+    .registers 3
+
+    .line 49
+    iput p1, p0, Landroid/support/design/shape/ShapePath;->startX:F
+
+    .line 50
+    iput p2, p0, Landroid/support/design/shape/ShapePath;->startY:F
+
+    .line 51
+    iput p1, p0, Landroid/support/design/shape/ShapePath;->endX:F
+
+    .line 52
+    iput p2, p0, Landroid/support/design/shape/ShapePath;->endY:F
+
+    .line 53
+    iget-object p1, p0, Landroid/support/design/shape/ShapePath;->operations:Ljava/util/List;
+
+    invoke-interface {p1}, Ljava/util/List;->clear()V
+
+    return-void
+.end method
+
+###### Class android.support.design.shape.ShapePath.PathArcOperation (android.support.design.shape.ShapePath$PathArcOperation)
+.class public Landroid/support/design/shape/ShapePath$PathArcOperation;
+.super Landroid/support/design/shape/ShapePath$PathOperation;
+.source "ShapePath.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/support/design/shape/ShapePath;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "PathArcOperation"
+.end annotation
+
+
+# static fields
+.field private static final rectF:Landroid/graphics/RectF;
+
+
+# instance fields
+.field public bottom:F
+
+.field public left:F
+
+.field public right:F
+
+.field public startAngle:F
+
+.field public sweepAngle:F
+
+.field public top:F
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .registers 1
+
+    .line 169
+    new-instance v0, Landroid/graphics/RectF;
+
+    invoke-direct {v0}, Landroid/graphics/RectF;-><init>()V
+
+    sput-object v0, Landroid/support/design/shape/ShapePath$PathArcOperation;->rectF:Landroid/graphics/RectF;
+
+    return-void
+.end method
+
+.method public constructor <init>(FFFF)V
+    .registers 5
+
+    .line 178
+    invoke-direct {p0}, Landroid/support/design/shape/ShapePath$PathOperation;-><init>()V
+
+    .line 179
+    iput p1, p0, Landroid/support/design/shape/ShapePath$PathArcOperation;->left:F
+
+    .line 180
+    iput p2, p0, Landroid/support/design/shape/ShapePath$PathArcOperation;->top:F
+
+    .line 181
+    iput p3, p0, Landroid/support/design/shape/ShapePath$PathArcOperation;->right:F
+
+    .line 182
+    iput p4, p0, Landroid/support/design/shape/ShapePath$PathArcOperation;->bottom:F
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public applyToPath(Landroid/graphics/Matrix;Landroid/graphics/Path;)V
+    .registers 8
+
+    .line 187
+    iget-object v0, p0, Landroid/support/design/shape/ShapePath$PathArcOperation;->matrix:Landroid/graphics/Matrix;
+
+    .line 188
+    invoke-virtual {p1, v0}, Landroid/graphics/Matrix;->invert(Landroid/graphics/Matrix;)Z
+
+    .line 189
+    invoke-virtual {p2, v0}, Landroid/graphics/Path;->transform(Landroid/graphics/Matrix;)V
+
+    .line 190
+    sget-object v0, Landroid/support/design/shape/ShapePath$PathArcOperation;->rectF:Landroid/graphics/RectF;
+
+    iget v1, p0, Landroid/support/design/shape/ShapePath$PathArcOperation;->left:F
+
+    iget v2, p0, Landroid/support/design/shape/ShapePath$PathArcOperation;->top:F
+
+    iget v3, p0, Landroid/support/design/shape/ShapePath$PathArcOperation;->right:F
+
+    iget v4, p0, Landroid/support/design/shape/ShapePath$PathArcOperation;->bottom:F
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/RectF;->set(FFFF)V
+
+    .line 191
+    sget-object v0, Landroid/support/design/shape/ShapePath$PathArcOperation;->rectF:Landroid/graphics/RectF;
+
+    iget v1, p0, Landroid/support/design/shape/ShapePath$PathArcOperation;->startAngle:F
+
+    iget v2, p0, Landroid/support/design/shape/ShapePath$PathArcOperation;->sweepAngle:F
+
+    const/4 v3, 0x0
+
+    invoke-virtual {p2, v0, v1, v2, v3}, Landroid/graphics/Path;->arcTo(Landroid/graphics/RectF;FFZ)V
+
+    .line 192
+    invoke-virtual {p2, p1}, Landroid/graphics/Path;->transform(Landroid/graphics/Matrix;)V
+
+    return-void
+.end method
+
+###### Class android.support.design.shape.ShapePath.PathLineOperation (android.support.design.shape.ShapePath$PathLineOperation)
+.class public Landroid/support/design/shape/ShapePath$PathLineOperation;
+.super Landroid/support/design/shape/ShapePath$PathOperation;
+.source "ShapePath.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/support/design/shape/ShapePath;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "PathLineOperation"
+.end annotation
+
+
+# instance fields
+.field private x:F
+
+.field private y:F
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 1
+
+    .line 136
+    invoke-direct {p0}, Landroid/support/design/shape/ShapePath$PathOperation;-><init>()V
+
+    return-void
+.end method
+
+.method static synthetic access$002(Landroid/support/design/shape/ShapePath$PathLineOperation;F)F
+    .registers 2
+
+    .line 136
+    iput p1, p0, Landroid/support/design/shape/ShapePath$PathLineOperation;->x:F
+
+    return p1
+.end method
+
+.method static synthetic access$102(Landroid/support/design/shape/ShapePath$PathLineOperation;F)F
+    .registers 2
+
+    .line 136
+    iput p1, p0, Landroid/support/design/shape/ShapePath$PathLineOperation;->y:F
+
+    return p1
+.end method
+
+
+# virtual methods
+.method public applyToPath(Landroid/graphics/Matrix;Landroid/graphics/Path;)V
+    .registers 5
+
+    .line 142
+    iget-object v0, p0, Landroid/support/design/shape/ShapePath$PathLineOperation;->matrix:Landroid/graphics/Matrix;
+
+    .line 143
+    invoke-virtual {p1, v0}, Landroid/graphics/Matrix;->invert(Landroid/graphics/Matrix;)Z
+
+    .line 144
+    invoke-virtual {p2, v0}, Landroid/graphics/Path;->transform(Landroid/graphics/Matrix;)V
+
+    .line 145
+    iget v0, p0, Landroid/support/design/shape/ShapePath$PathLineOperation;->x:F
+
+    iget v1, p0, Landroid/support/design/shape/ShapePath$PathLineOperation;->y:F
+
+    invoke-virtual {p2, v0, v1}, Landroid/graphics/Path;->lineTo(FF)V
+
+    .line 146
+    invoke-virtual {p2, p1}, Landroid/graphics/Path;->transform(Landroid/graphics/Matrix;)V
+
+    return-void
+.end method
+
+###### Class android.support.design.shape.ShapePath.PathOperation (android.support.design.shape.ShapePath$PathOperation)
+.class public abstract Landroid/support/design/shape/ShapePath$PathOperation;
+.super Ljava/lang/Object;
+.source "ShapePath.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/support/design/shape/ShapePath;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x409
+    name = "PathOperation"
+.end annotation
+
+
+# instance fields
+.field protected final matrix:Landroid/graphics/Matrix;
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 2
+
+    .line 129
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 130
+    new-instance v0, Landroid/graphics/Matrix;
+
+    invoke-direct {v0}, Landroid/graphics/Matrix;-><init>()V
+
+    iput-object v0, p0, Landroid/support/design/shape/ShapePath$PathOperation;->matrix:Landroid/graphics/Matrix;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public abstract applyToPath(Landroid/graphics/Matrix;Landroid/graphics/Path;)V
+.end method
+
+###### Class android.support.design.shape.ShapePath.PathQuadOperation (android.support.design.shape.ShapePath$PathQuadOperation)
+.class public Landroid/support/design/shape/ShapePath$PathQuadOperation;
+.super Landroid/support/design/shape/ShapePath$PathOperation;
+.source "ShapePath.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/support/design/shape/ShapePath;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "PathQuadOperation"
+.end annotation
+
+
+# instance fields
+.field public controlX:F
+
+.field public controlY:F
+
+.field public endX:F
+
+.field public endY:F
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 1
+
+    .line 151
+    invoke-direct {p0}, Landroid/support/design/shape/ShapePath$PathOperation;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public applyToPath(Landroid/graphics/Matrix;Landroid/graphics/Path;)V
+    .registers 7
+
+    .line 159
+    iget-object v0, p0, Landroid/support/design/shape/ShapePath$PathQuadOperation;->matrix:Landroid/graphics/Matrix;
+
+    .line 160
+    invoke-virtual {p1, v0}, Landroid/graphics/Matrix;->invert(Landroid/graphics/Matrix;)Z
+
+    .line 161
+    invoke-virtual {p2, v0}, Landroid/graphics/Path;->transform(Landroid/graphics/Matrix;)V
+
+    .line 162
+    iget v0, p0, Landroid/support/design/shape/ShapePath$PathQuadOperation;->controlX:F
+
+    iget v1, p0, Landroid/support/design/shape/ShapePath$PathQuadOperation;->controlY:F
+
+    iget v2, p0, Landroid/support/design/shape/ShapePath$PathQuadOperation;->endX:F
+
+    iget v3, p0, Landroid/support/design/shape/ShapePath$PathQuadOperation;->endY:F
+
+    invoke-virtual {p2, v0, v1, v2, v3}, Landroid/graphics/Path;->quadTo(FFFF)V
+
+    .line 163
+    invoke-virtual {p2, p1}, Landroid/graphics/Path;->transform(Landroid/graphics/Matrix;)V
+
+    return-void
+.end method

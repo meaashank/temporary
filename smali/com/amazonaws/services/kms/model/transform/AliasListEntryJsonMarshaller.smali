@@ -1,0 +1,118 @@
+###### Class com.amazonaws.services.kms.model.transform.AliasListEntryJsonMarshaller (com.amazonaws.services.kms.model.transform.AliasListEntryJsonMarshaller)
+.class Lcom/amazonaws/services/kms/model/transform/AliasListEntryJsonMarshaller;
+.super Ljava/lang/Object;
+.source "AliasListEntryJsonMarshaller.java"
+
+
+# static fields
+.field private static a:Lcom/amazonaws/services/kms/model/transform/AliasListEntryJsonMarshaller;
+
+
+# direct methods
+.method constructor <init>()V
+    .registers 1
+
+    .line 24
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method public static a()Lcom/amazonaws/services/kms/model/transform/AliasListEntryJsonMarshaller;
+    .registers 1
+
+    .line 49
+    sget-object v0, Lcom/amazonaws/services/kms/model/transform/AliasListEntryJsonMarshaller;->a:Lcom/amazonaws/services/kms/model/transform/AliasListEntryJsonMarshaller;
+
+    if-nez v0, :cond_b
+
+    .line 50
+    new-instance v0, Lcom/amazonaws/services/kms/model/transform/AliasListEntryJsonMarshaller;
+
+    invoke-direct {v0}, Lcom/amazonaws/services/kms/model/transform/AliasListEntryJsonMarshaller;-><init>()V
+
+    sput-object v0, Lcom/amazonaws/services/kms/model/transform/AliasListEntryJsonMarshaller;->a:Lcom/amazonaws/services/kms/model/transform/AliasListEntryJsonMarshaller;
+
+    .line 51
+    :cond_b
+    sget-object v0, Lcom/amazonaws/services/kms/model/transform/AliasListEntryJsonMarshaller;->a:Lcom/amazonaws/services/kms/model/transform/AliasListEntryJsonMarshaller;
+
+    return-object v0
+.end method
+
+
+# virtual methods
+.method public a(Lcom/amazonaws/services/kms/model/AliasListEntry;Lcom/amazonaws/util/json/AwsJsonWriter;)V
+    .registers 5
+
+    .line 27
+    invoke-interface {p2}, Lcom/amazonaws/util/json/AwsJsonWriter;->c()Lcom/amazonaws/util/json/AwsJsonWriter;
+
+    .line 28
+    invoke-virtual {p1}, Lcom/amazonaws/services/kms/model/AliasListEntry;->a()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_15
+
+    .line 29
+    invoke-virtual {p1}, Lcom/amazonaws/services/kms/model/AliasListEntry;->a()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "AliasName"
+
+    .line 30
+    invoke-interface {p2, v1}, Lcom/amazonaws/util/json/AwsJsonWriter;->a(Ljava/lang/String;)Lcom/amazonaws/util/json/AwsJsonWriter;
+
+    .line 31
+    invoke-interface {p2, v0}, Lcom/amazonaws/util/json/AwsJsonWriter;->b(Ljava/lang/String;)Lcom/amazonaws/util/json/AwsJsonWriter;
+
+    .line 33
+    :cond_15
+    invoke-virtual {p1}, Lcom/amazonaws/services/kms/model/AliasListEntry;->b()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_27
+
+    .line 34
+    invoke-virtual {p1}, Lcom/amazonaws/services/kms/model/AliasListEntry;->b()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "AliasArn"
+
+    .line 35
+    invoke-interface {p2, v1}, Lcom/amazonaws/util/json/AwsJsonWriter;->a(Ljava/lang/String;)Lcom/amazonaws/util/json/AwsJsonWriter;
+
+    .line 36
+    invoke-interface {p2, v0}, Lcom/amazonaws/util/json/AwsJsonWriter;->b(Ljava/lang/String;)Lcom/amazonaws/util/json/AwsJsonWriter;
+
+    .line 38
+    :cond_27
+    invoke-virtual {p1}, Lcom/amazonaws/services/kms/model/AliasListEntry;->c()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_39
+
+    .line 39
+    invoke-virtual {p1}, Lcom/amazonaws/services/kms/model/AliasListEntry;->c()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v0, "TargetKeyId"
+
+    .line 40
+    invoke-interface {p2, v0}, Lcom/amazonaws/util/json/AwsJsonWriter;->a(Ljava/lang/String;)Lcom/amazonaws/util/json/AwsJsonWriter;
+
+    .line 41
+    invoke-interface {p2, p1}, Lcom/amazonaws/util/json/AwsJsonWriter;->b(Ljava/lang/String;)Lcom/amazonaws/util/json/AwsJsonWriter;
+
+    .line 43
+    :cond_39
+    invoke-interface {p2}, Lcom/amazonaws/util/json/AwsJsonWriter;->d()Lcom/amazonaws/util/json/AwsJsonWriter;
+
+    return-void
+.end method

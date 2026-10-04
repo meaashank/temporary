@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:background="@drawable/shape_tips_bg"
+    android:layout_width="344dp"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp">
+    <TextView
+        android:textSize="16sp"
+        android:textColor="#1ea25a"
+        android:gravity="center_vertical"
+        android:layout_gravity="center"
+        android:id="@+id/tv_hide_unhide"
+        android:background="@drawable/shape_tips_btn_white_bg"
+        android:clickable="true"
+        android:layout_width="150dp"
+        android:layout_height="36dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="22dp"/>
+    <TextView
+        android:textSize="16sp"
+        android:textColor="#ffffff"
+        android:gravity="center_vertical"
+        android:layout_gravity="center"
+        android:id="@+id/tv_launche_guest"
+        android:background="@drawable/shape_tips_btn_green_bg"
+        android:clickable="true"
+        android:layout_width="150dp"
+        android:layout_height="36dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginBottom="22dp"
+        android:text="@string/tips_btn_launch"/>
+</LinearLayout>

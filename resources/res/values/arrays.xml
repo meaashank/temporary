@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="problems_annoying">
+        <item>Nudity</item>
+        <item>Violence</item>
+        <item>Harassment</item>
+        <item>Suicide or Self-Injury</item>
+        <item>False New</item>
+        <item>Spam</item>
+        <item>Unauthorized Sales</item>
+        <item>Hate Speech</item>
+        <item>Terrorism</item>
+    </array>
+    <array name="problems_harmful">
+        <item>Involves a Child</item>
+        <item>Suicide or Self-Injury</item>
+        <item>Terrorism</item>
+        <item>Violent or Threatening</item>
+        <item>Adults Sexual Exploitation</item>
+    </array>
+</resources>
